@@ -56,6 +56,20 @@ def create_todo():
         return jsonify(body)
 
 
+@app.route('/todos/<todoId>/setCompleted', methods=['POST'])
+def setCompletedTodo():
+    try:
+        completed = request.get_json()['completed']
+        todo = Todo.query.get(todoId)
+        todo.completed = completed
+        db.session.commit()
+    except:
+        db.session.rollback()
+    finally:
+        db.session.close()
+    return redirect(url_for('index'))
+
+
 @app.route('/')
 def index():
-    return render_template('index.html', data=Todo.query.all())
+    return render_template('index.html', data=Todo.query.order_by('id').all())
