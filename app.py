@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify, abort
+from flask import Flask, render_template, request, redirect, url_for, jsonify, abort, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 import sys
@@ -125,6 +125,11 @@ def get_list_todos(list_id):
         active_list=TodoList.query.get(list_id),
         todos=Todo.query.filter_by(list_id=list_id).all()
     )
+
+
+@app.route('/static/<path>')
+def send_static(path):
+    return send_from_directory('static', path)
 
 
 @app.route('/')
