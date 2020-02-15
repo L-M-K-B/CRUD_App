@@ -13,20 +13,28 @@
             <ul id="lists">
                 {% for list in lists %}
                 <li>
-                    <a data-id="{{ list.id }}" href="/lists/{{ list.id }}">
+                    <input class="listCheckCompleted" data-id="{{ list.id }}" type="checkbox" {%if list.completed%} checked {%endif%} />
+                    <a href="/lists/{{ list.id }}">
                         {{ list.name }} 
                     </a>
+                    <button class="deleteList" data-id="{{ list.id }}">&cross;</button>
                 </li>
                 {% endfor %}
             </ul>
         </div>
         <div class="todos-wrapper">
-            <h4>{{ active_list.name }}</h4>
             <form id="todo-form">
+                <label for="list-select">Choose a todolist:</label>
+                <select id="list-select">
+                    {% for list in lists %}
+                    <option value={{list.id}}>{{list.name}}</option>
+                    {% endfor %}
+                </select>
                 <label for="description">New todo:</label>
                 <input type="text" placeholder="Type your todo here" name="description" />
                 <input type="submit" value="Create" />
             </form>
+            <h4>{{ active_list.name }}</h4>
             <div id="error" class="hidden">Something went wrong!</div>
             <ul id="todos">
                 {% for todo in todos %}
@@ -38,6 +46,6 @@
                 {% endfor %}
             </ul>
         </div>
-        <script type="text/javascript" src="/static/script.js" />
+        <script type="text/javascript" src="/static/script.js"></script>
     </body>
 </html>

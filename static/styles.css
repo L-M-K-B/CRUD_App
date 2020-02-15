@@ -1,39 +1,39 @@
 .hidden {
-  display: none;
+    display: none;
 }
 .lists-wrapper,
 .todos-wrapper {
-  display: inline-block;
+    display: inline-block;
 }
 .lists-wrapper {
-  width: 170px;
-  vertical-align: top;
+    width: 200px;
+    vertical-align: top;
 }
 .todos-wrapper {
-  width: 300px;
+    width: 300px;
 }
 ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 li {
-  font-size: 20px;
+    font-size: 20px;
 }
 li button {
-  float: right;
-  border: none;
-  color: indigo;
-  background-color: salmon;
-  font-size: 15px;
-  cursor: pointer;
+    float: right;
+    border: none;
+    color: indigo;
+    background-color: salmon;
+    font-size: 15px;
+    cursor: pointer;
 }
 a {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
 h4 {
-  padding: 0;
-  margin: 0 0 15px;
-  color: indigo;
+    padding: 0;
+    margin: 0 0 15px;
+    color: indigo;
 }
